@@ -7,6 +7,12 @@ export default class Elem {
     this.szuloElem = szuloElem;
     this.megjelenit();
     this.elem = document.querySelector(".elem:last-child")
+    this.elem.addEventListener("click", ()=> {
+        if (this.#adat===""){
+            const esemeny = new CustomEvent("kivalaszt", {detail: this.#index})
+            window.dispatchEvent(esemeny)
+        }
+    })
   }
 
   megjelenit() {
